@@ -6,7 +6,7 @@
     "target": "es5",
     "lib": ["es6", "dom"],
     "sourceMap": true,
-    "allowJs": true,
+    // "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
@@ -27,6 +27,5 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
-  ],
-  "ordered-imports": false
+  ]
 }

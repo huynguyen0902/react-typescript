@@ -28,8 +28,8 @@ class Form extends React.Component<IProps, IState>{
         
     }
     public onChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        var name = event.target.name;
-        var value = event.target.value;
+        const name = event.target.name;
+        const value = event.target.value;
         this.setState({
             filterName: name === "filterName" ? value : this.state.filterName,
             filterLastName: name === "filterLastName" ? value : this.state.filterLastName

@@ -1,4 +1,8 @@
-export const data: any[] = [
+export interface Patient{
+    status: string;
+
+}
+export const data: Patient[] = [
     {
         status: "Active",
         patientId: 1,

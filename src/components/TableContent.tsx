@@ -5,7 +5,7 @@ interface IProps{
 }
 class TableContent extends React.Component<IProps, {}>{
     public render(){
-        let elements: any = this.props.patients.map((item: any, index: any) => {
+        const elements: any = this.props.patients.map((item: any, index: any) => {
             return <RowContent patient={item} key={index} />
         });
         return(

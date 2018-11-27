@@ -4,6 +4,9 @@ import Header from './Header';
 import Form from './Form';
 import TableContent from './TableContent';
 import { data } from './Data';
+// import { BrowserRouter as Router} from "react-router-dom";
+
+
 interface IState{
   patients:any[];
   isGet: boolean;
@@ -40,10 +43,11 @@ class App extends React.Component<{}, IState> {
     })
   }
   public render() {
+    // tslint:disable-next-line:no-console
     console.log("state", this.state);
     let patients: any = this.state.patients;
-    let isGet: boolean = this.state.isGet;
-    let filter: any = this.state.filter;
+    const isGet: boolean = this.state.isGet;
+    const filter: any = this.state.filter;
     if(filter[0].filterName){
       patients = patients.filter((patient: any) =>{
         return patient.patientName.toLowerCase().indexOf(filter[0].filterName) !== -1
@@ -53,11 +57,14 @@ class App extends React.Component<{}, IState> {
     
     
     return (
+
       <div className="container">
         <Header />
         <Form get={this.getdata} filter={this.filter} />
         <TableContent patients= {isGet === true? patients: []}/>
       </div>
+
+ 
     );
   }
 }
