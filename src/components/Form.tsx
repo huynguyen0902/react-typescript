@@ -1,31 +1,21 @@
 import * as React from 'react';
 interface IProps{
-    get: any;
-    filter: any;
+    filter: (firstName: string, lastName: string) => void;
 }
 interface IState{
-    isGet: any;
+    isGet: boolean;
     filterName: string;
     filterLastName: string;
 
 }
 class Form extends React.Component<IProps, IState>{
-    constructor(props: any){
+    constructor(props: IProps){
         super(props);
         this.state = {
             isGet: false,
             filterName : "",
             filterLastName: ""
         }
-    }
-    public onClick = () => {
-        setTimeout(()=>{
-            this.setState({
-                isGet: !this.state.isGet
-            });
-            this.props.get(true);
-        }, 2000)
-        
     }
     public onChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const name = event.target.name;
@@ -43,7 +33,7 @@ class Form extends React.Component<IProps, IState>{
     public render(){
         // console.log("state", this.state);
         return(
-            <div className="container">
+            <div>
                 <div className="container">
                     <div className="form-group col-xs-4">
                             <label className="control-label" htmlFor="facility">Facility</label>
@@ -94,15 +84,7 @@ class Form extends React.Component<IProps, IState>{
                         <label className="control-label" htmlFor="btnClear">Clear</label>
                         <button type="button" className="btn btn-primary" id="btnClear">Clear search</button>
                     </div>  
-                </div>
-                <div className="container">
-                    <div className="col-xs-2">
-                        <button type="button" className="btn btn-danger" onClick={this.onClick}>Get Data</button>
-                    </div>
-                    
-                    
-                </div>
-                
+                </div>        
             </div>
         );
     }

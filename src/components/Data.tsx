@@ -1,222 +1,88 @@
 export interface Patient{
     status: string;
+    patientId: number;
+    patientName: string;
+    chart: string;
+    dob: string;
+    gender: string;
+    ssn: string;
+    address: string;
+    phone: number;
+    action: string;
+    
 
 }
 export const data: Patient[] = [
     {
         status: "Active",
         patientId: 1,
-        chart: 1,
         patientName: "john", 
-        dob: "",
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
+        phone: 123,
         action: ""
     },
     {
         status: "None",
         patientId: 2,
-        chart: 2,
-        patientName: "white", 
-        dob: "",
+        patientName: "marry", 
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
+        phone: 123,
         action: ""
     },
     {
         status: "Active",
         patientId: 3,
-        chart: 3,
-        patientName: "marry", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 1,
-        chart: 1,
         patientName: "john", 
-        dob: "",
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
+        phone: 123,
         action: ""
     },
     {
-        status: "",
-        patientId: 2,
-        chart: 1,
-        patientName: "white", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 3,
-        chart: 1,
+        status: "None",
+        patientId: 4,
         patientName: "marry", 
-        dob: "",
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
+        phone: 123,
         action: ""
     },
     {
-        status: "",
-        patientId: 1,
-        chart: 1,
+        status: "Active",
+        patientId: 5,
         patientName: "john", 
-        dob: "",
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
+        phone: 123,
         action: ""
     },
     {
-        status: "",
-        patientId: 2,
-        chart: 1,
-        patientName: "white", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 3,
-        chart: 1,
+        status: "None",
+        patientId: 6,
         patientName: "marry", 
-        dob: "",
+        chart: "asd",
+        dob: "28/11/2018",
         gender: "",
         ssn: "",
         address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 1,
-        chart: 1,
-        patientName: "john", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 2,
-        chart: 1,
-        patientName: "white", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 3,
-        chart: 1,
-        patientName: "marry", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 1,
-        chart: 1,
-        patientName: "john", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 2,
-        chart: 1,
-        patientName: "white", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 3,
-        chart: 1,
-        patientName: "marry", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 1,
-        chart: 1,
-        patientName: "john", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 2,
-        chart: 1,
-        patientName: "white", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
-        action: ""
-    },
-    {
-        status: "",
-        patientId: 3,
-        chart: 1,
-        patientName: "marry", 
-        dob: "",
-        gender: "",
-        ssn: "",
-        address: "",
-        phone: "",
+        phone: 123,
         action: ""
     }
 ];

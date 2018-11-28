@@ -1,16 +1,17 @@
 import * as React from 'react';
 import RowContent from './RowContent';
+import { Patient } from './Data';
 interface IProps{
-    patients: any;
+    patients: Patient[];
 }
 class TableContent extends React.Component<IProps, {}>{
     public render(){
-        const elements: any = this.props.patients.map((item: any, index: any) => {
+        const elements = this.props.patients.map((item: Patient, index: number) => {
             return <RowContent patient={item} key={index} />
         });
         return(
-            <div className="container">
-                <table className="table table-hover">
+            <div>
+                <table className="table table-bordered">
                     <thead>
                         <tr>
                             <th>Status</th>
@@ -29,7 +30,6 @@ class TableContent extends React.Component<IProps, {}>{
                         {elements}
                     </tbody>
                 </table>
-                
             </div>
         );
     }

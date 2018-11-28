@@ -3,8 +3,8 @@ interface IState{
     date: Date;
 }
 class Header extends React.Component<{}, IState> {
-    public timerID: any;
-    constructor(props: any){
+    public timerID: NodeJS.Timeout;
+    constructor(props: {}){
         super(props);
         this.state = {
             date: new Date()
