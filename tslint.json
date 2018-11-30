@@ -12,6 +12,9 @@
     "object-literal-sort-keys": false,
     "no-any": true,
     "interface-name": false,
-    "object-literal-shorthand": false
+    "object-literal-shorthand": false,
+    "no-shadowed-variable" :false,
+    "no-console": false,
+    "prefer-const": false
   }
 }

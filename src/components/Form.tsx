@@ -1,12 +1,18 @@
 import * as React from 'react';
-interface IProps{
-    filter: (firstName: string, lastName: string) => void;
-}
+import { Dispatch } from 'redux';
+import {Action} from 'src/index'
+import { connect } from 'react-redux';
+// interface IProps{
+//     filter: (firstName: string, lastName: string) => void;
+// }
 interface IState{
     isGet: boolean;
     filterName: string;
     filterLastName: string;
 
+}
+interface IProps {
+    filterFirstName: (filterFirstName: string) => void
 }
 class Form extends React.Component<IProps, IState>{
     constructor(props: IProps){
@@ -18,20 +24,17 @@ class Form extends React.Component<IProps, IState>{
         }
     }
     public onChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        const name = event.target.name;
+        // const name = event.target.name;
         const value = event.target.value;
-        this.setState({
-            filterName: name === "filterName" ? value : this.state.filterName,
-            filterLastName: name === "filterLastName" ? value : this.state.filterLastName
-        })
-        this.props.filter(
-            name === "filterName" ? value: this.state.filterName,
-            name === "filterLastName" ? value: this.state.filterLastName
-        );
+        this.props.filterFirstName(value);
+        // this.setState({
+        //     filterName: name === "filterName" ? value : this.state.filterName,
+        //     filterLastName: name === "filterLastName" ? value : this.state.filterLastName
+        // })
+
         
     }
     public render(){
-        // console.log("state", this.state);
         return(
             <div>
                 <div className="container">
@@ -89,4 +92,14 @@ class Form extends React.Component<IProps, IState>{
         );
     }
 }
-export default Form;
+const mapDispatchToProps = (dispatch: Dispatch<Action>) =>{
+    return {
+        filterFirstName: (filterFirstName: string) =>{
+            dispatch({
+                type: "FILTER_FIRST_NAME",
+                filterFirstName: filterFirstName
+            })
+        }
+    }
+}
+export default connect(null, mapDispatchToProps) (Form);

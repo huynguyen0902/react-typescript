@@ -4,71 +4,73 @@ import Header from './Header';
 import { data, Patient } from './Data';
 import Form from './Form';
 import TableContent from './TableContent';
-
-interface IState{
-  patients:Patient[];
-  isGet: boolean;
-  filterFirstName: string;
-  filterLastName: string;
+import { Dispatch } from 'redux';
+import { Action } from 'src';
+import { connect } from 'react-redux';
+// interface IState{
+//   patients:Patient[];
+//   isGet: boolean;
+//   filterFirstName: string;
+//   filterLastName: string;
   
+// }
+// tslint:disable-next-line:no-empty-interface
+interface IStateToProps{
+  isLoad: boolean;
 }
-class App extends React.Component<{}, IState> {
-  constructor(props: {}){
+interface IDispatchToProps{
+  showPatients: (patients: Patient[], isLoad: boolean) => void;
+}
+type IProps = IStateToProps & IDispatchToProps;
+
+class Home extends React.Component<IProps, {}> {
+  constructor(props: IProps){
     super(props);
-    this.state = {
-      patients: [],
-      isGet: false,
-      filterFirstName: "",
-      filterLastName: ""
-    }
     this.apiGetPatient().then((patients) => {
-      // tslint:disable-next-line:no-console
-      this.setState({
-        patients: patients,
-        isGet: true
-      });
+      this.props.showPatients(patients, false);
     });
   }
 
-  public filter = (firstName: string, lastName: string) => {
-    this.setState({
-      filterFirstName: firstName,
-      filterLastName: lastName
-    })
-  }
+  // public filter = (firstName: string, lastName: string) => {
+  //   this.setState({
+  //     filterFirstName: firstName,
+  //     filterLastName: lastName
+  //   })
+  // }
   public apiGetPatient = (): Promise<Patient[]> => {
     return new Promise((resolve) => {
       const patients: Patient[] = data;
       setTimeout(() => {
         resolve(patients)
-      }, 3000)
+      }, 1000)
     })
   }
 
   public render() {
-    // // tslint:disable-next-line:no-console
-    // console.log("state", this.state);
-    // this.apiGetPatient().then((patients) => {
-    //   // tslint:disable-next-line:no-console
-    //   console.log(patients)
-    // });
-    // const isGet: boolean = this.state.isGet;
-    // const filterFirstName: string = this.state.filterFirstName;
-    // if(filterFirstName){
-    //   patients = patients.filter((patient: Patient) =>{
-    //     return patient.patientName.toLowerCase().indexOf(filterFirstName) !== -1
-    //   });
-      
-    // }
     return (
         <div>
           <Header />
-          <div id={this.state.isGet === false? "loader": "asd"} />
-          <Form filter={this.filter} />
-          <TableContent patients= {this.state.patients}/>
+          <div  id={this.props.isLoad === true? "loader": "notload"} />
+          <Form/>
+          <TableContent />
         </div>
     );
   }
 }
-
-export default App;
+const mapDispatchToProps = (dispatch: Dispatch<Action>) =>{
+  return{
+    showPatients :(patients: Patient[], isload: boolean) => {
+      dispatch({
+        type: 'PATIENTS_LIST',
+        listPatients: patients,
+        isLoad: isload
+      })
+    }
+  };
+}
+const mapStateToProps = (state: IStateToProps) => {
+  return {
+    isLoad: state.isLoad
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

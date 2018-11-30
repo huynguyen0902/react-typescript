@@ -1,0 +1,1 @@
+export const SHOW_PATIENT: string = "SHOW_PATIENT";

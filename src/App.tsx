@@ -1,17 +1,16 @@
 import * as React from "react";
 import Home from './components/Home';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Confirm from './components/Confirm';
-import DetailPatient from './components/DetailPatient';
+import Patient from './components/Patient';
+import PatientEdit from './components/PatientEdit';
 class App extends React.Component{
     public render() {
         return (
             <Router>
                 <div className="container">
                     <Route path="/" exact = {true} component={Home} />
-                    <Route path="/Confirm/:id" component={Home} />
-                    <Route path="/Confirm/:id" component={Confirm} />
-                    <Route path="/DetailPatient/:id" component={DetailPatient} /> 
+                    <Route path="/patient/:id" component={Patient} /> 
+                    <Route path="/edit/patient:id" component={PatientEdit} />
                 </div>
             </Router>
             
